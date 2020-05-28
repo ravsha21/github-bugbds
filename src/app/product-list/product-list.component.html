@@ -1,0 +1,30 @@
+<h2>Products</h2>
+<!-- With *ngFor, the <div> repeats for each product in the list  -->
+<div *ngFor="let product of products">
+
+  <h3>
+    <!-- To display the names of the products, use the interpolation syntax {{ }}  -->
+     <a [title]="product.name + ' details'">
+      {{ product.name }}
+    </a>
+  </h3>
+  <!-- show description of product -->
+  <p *ngIf="product.description">
+    Description: {{ product.description }}
+  </p>
+<!-- add a product share button -->
+  <button (click)="share()">
+  Share
+</button>
+<!-- add alert for product -->
+<app-product-alerts
+  [product]="product">
+</app-product-alerts>
+
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
