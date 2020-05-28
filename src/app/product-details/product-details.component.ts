@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { products } from '../products';
+/* import cart services */
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -12,10 +14,16 @@ import { products } from '../products';
 export class ProductDetailsComponent implements OnInit {
 
    product;
-
+  /* Inject the cart service by adding it to the constructor() */
   constructor(
     private route: ActivatedRoute,
+    private cartService: CartService
   ) { }
+
+   addToCart(product) {
+    this.cartService.addToCart(product);
+    window.alert('Your product has been added to the cart!');
+  }
   /* ngOnInit() method to subscribe route parameters and fetch the product based on the productId.
 
 src/app/product-details/product-deta */
