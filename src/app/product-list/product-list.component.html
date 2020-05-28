@@ -1,10 +1,9 @@
 <h2>Products</h2>
 <!-- With *ngFor, the <div> repeats for each product in the list  -->
-<div *ngFor="let product of products">
+<div *ngFor="let product of products; index as productId">
 
   <h3>
-    <!-- To display the names of the products, use the interpolation syntax {{ }}  -->
-     <a [title]="product.name + ' details'">
+    <a [title]="product.name + ' details'" [routerLink]="['/products', productId]">
       {{ product.name }}
     </a>
   </h3>
